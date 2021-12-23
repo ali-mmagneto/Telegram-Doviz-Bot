@@ -7,9 +7,7 @@ from pyrogram import Client
 from pyrogram import filters
 
 from os import getenv, environ
-from dotenv import load_dotenv
 
-load_dotenv('config.env')
 bot_token = os.environ['BOT_TOKEN']
 api_id = int(os.environ['API_ID'])
 api_hash = os.environ['API_HASH']
