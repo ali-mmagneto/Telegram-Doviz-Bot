@@ -38,6 +38,10 @@ You can contact with me from PM if you need more help.
 @app.on_message(filters.command("dolar"))
 async def doviz(client, message):
     dovizcek = requests.get(dovizjson)
+    dolar = dovizveri.Anlik[0]
+
+    dolar.alis
+    dolar.satis
     dovizveri = json.loads(dovizcek.text)
     print(dovizveri)
     await client.send_message(message.chat.id, f"""
