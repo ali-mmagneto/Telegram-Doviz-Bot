@@ -1,13 +1,15 @@
 # Kutuphaneleri import ediyoruz
+import os
 import requests
 import json
 import pyrogram
 from pyrogram import Client
 from pyrogram import filters
-import os
 
+from os import getenv, environ
+from dotenv import load_dotenv
 
-#load_dotenv(".env", override=True)
+load_dotenv('config.env')
 bot_token = os.environ['BOT_TOKEN']
 api_id = int(os.environ['API_ID'])
 api_hash = os.environ['API_HASH']
@@ -27,11 +29,8 @@ dovizjson = "https://api.agacinayetvar.ml/canli.json"
 # Baslat komutunda atilacak mesaji ayarliyoruz
 @app.on_message(filters.command("start"))
 async def start(client, message):
-    await client.send_message(message.chat.id, f"""**Welcome** @{message.from_user.username}.
-**Grup**: ```{message.chat.title}```
-**Davet Linki**:  ```t.me/{message.chat.username}```
-**Snein Kullanıcı İd'in**: ```{message.from_user.id}```
-Daha fazla yardıma ihtiyacınız olursa özel sohbetten benimle iletişime geçebilirsiniz. .
+    await client.send_message(message.chat.id, f"""**Merhaba** {message.from_user.first_name}.
+**Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan.**
 """)
 
 # Degiskenlere atadigimiz veriyi Telegram'a yukluyoruz
@@ -39,8 +38,25 @@ Daha fazla yardıma ihtiyacınız olursa özel sohbetten benimle iletişime geç
 async def doviz(client, message):
     dovizcek = requests.get(dovizjson)
     dovizveri = json.loads(dovizcek.text)
-    dolar = dovizveri.Anlik[0]
+    dolar = dovizveri["veriler"][0]
+    await client.send_message(message.chat.id, f"""**USD/TL**
+**Alış:** ```{dolar["alis"]}```\n**Satış:** ```{dolar["satis"]}```\n**Fark:** ```{dolar["fark"]}```""")
+    
+@app.on_message(filters.command("euro"))
+async def euro(client, message):
+    dovizcek = requests.get(dovizjson)
+    dovizveri = json.loads(dovizcek.text)
+    euro = dovizveri["veriler"][1]
+    await client.send_message(message.chat.id, f"""**EURO/TL**
+**Alış:** ```{euro["alis"]}```\n**Satış:** ```{euro["satis"]}```\n**Fark:** ```{euro["fark"]}```""")
+    
+    
+@app.on_message(filters.command("help"))
+async def help(client, message):
     await client.send_message(message.chat.id, f"""
-Dolar: ```Alış: {dolar.alis}\nSatış: {dolar.satis}```""")
-
+**Dolar**:  ```/dolar```
+**Euro**: ```/euro```
+**Adam Olana çok bile**
+""")    
+    
 app.run()
