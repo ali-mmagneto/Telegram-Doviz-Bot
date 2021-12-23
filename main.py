@@ -1,4 +1,4 @@
-# Kutuphaneleri import ediyoruz
+ Kutuphaneleri import ediyoruz
 import requests
 import json
 import pyrogram
@@ -22,11 +22,7 @@ app = Client(
 
 # Json ile veri cekiyoruz
 dovizjson = "https://api.agacinayetvar.ml/canli.json"
-dovizcek = requests.get(dovizjson)
-dovizveri = json.loads(dovizcek.text)
 
-# Jsondan cekilen verileri degiskenlere atiyoruz
-dolar = print(dovizveri)
 
 # Baslat komutunda atilacak mesaji ayarliyoruz
 @app.on_message(filters.command("start"))
@@ -41,8 +37,10 @@ You can contact with me from PM if you need more help.
 # Degiskenlere atadigimiz veriyi Telegram'a yukluyoruz
 @app.on_message(filters.command("dolar"))
 async def doviz(client, message):
-print(dovizveri)
+    dovizcek = requests.get(dovizjson)
+    dovizveri = json.loads(dovizcek.text)
+    print(dovizveri)
     await client.send_message(message.chat.id, f"""
-Dolar: ```{dolar}```""")
+Dolar: ```{dovizveri}```""")
 
 app.run()
