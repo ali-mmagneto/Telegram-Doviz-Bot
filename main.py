@@ -1,4 +1,4 @@
- Kutuphaneleri import ediyoruz
+# Kutuphaneleri import ediyoruz
 import requests
 import json
 import pyrogram
@@ -28,23 +28,19 @@ dovizjson = "https://api.agacinayetvar.ml/canli.json"
 @app.on_message(filters.command("start"))
 async def start(client, message):
     await client.send_message(message.chat.id, f"""**Welcome** @{message.from_user.username}.
-**Group**: ```{message.chat.title}```
-**Invite Link**:  ```t.me/{message.chat.username}```
-**Your User ID**: ```{message.from_user.id}```
-You can contact with me from PM if you need more help.
+**Grup**: ```{message.chat.title}```
+**Davet Linki**:  ```t.me/{message.chat.username}```
+**Snein Kullanıcı İd'in**: ```{message.from_user.id}```
+Daha fazla yardıma ihtiyacınız olursa özel sohbetten benimle iletişime geçebilirsiniz. .
 """)
 
 # Degiskenlere atadigimiz veriyi Telegram'a yukluyoruz
 @app.on_message(filters.command("dolar"))
 async def doviz(client, message):
     dovizcek = requests.get(dovizjson)
-    dolar = dovizveri.Anlik[0]
-
-    dolar.alis
-    dolar.satis
     dovizveri = json.loads(dovizcek.text)
-    print(dovizveri)
+    dolar = dovizveri.Anlik[0]
     await client.send_message(message.chat.id, f"""
-Dolar: ```{dovizveri}```""")
+Dolar: ```Alış: {dolar.alis}\nSatış: {dolar.satis}```""")
 
 app.run()
