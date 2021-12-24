@@ -1,17 +1,10 @@
 # Kutuphaneleri import ediyoruz
-import os
-from telethon import Button
-from telethon import TelegramClient, events
 import requests
 import json
-from pyrogram import filters
-from bot import app, data, sudo_users
-from bot.helper.utils import add_task
-from pyrogram.types.bots_and_keyboards import InlineKeyboardButton, InlineKeyboardMarkup
-from .translation import Translation
 import pyrogram
 from pyrogram import Client
 from pyrogram import filters
+import os
 
 from os import getenv, environ
 
