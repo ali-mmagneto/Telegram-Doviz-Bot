@@ -52,7 +52,7 @@ async def euro(client, message):
 async def sterlin(client, message):
     dovizcek = requests.get(dovizjson)
     dovizveri = json.loads(dovizcek.text)
-    ingilizsterlini  = dovizveri["veriler"][1]
+    ingilizsterlini  = dovizveri["veriler"][2]
     await client.send_message(message.chat.id, f"""**İngiliz Sterlini/TL**
 **Alış:** ```{ingilizsterlini["alis"]}```\n**Satış:** ```{ingilizsterlini["satis"]}```\n**Fark:** ```{ingilizsterlini["fark"]}```""")
     
