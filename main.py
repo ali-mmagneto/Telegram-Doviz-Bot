@@ -14,7 +14,7 @@ api_hash = os.environ['API_HASH']
 
 # Telegram sunucusuna bagliyoruz
 app = Client(
-    "LambdaBot",
+    "Dovizbot",
     bot_token=bot_token,
     api_id=api_id,
     api_hash=api_hash
@@ -56,6 +56,21 @@ async def sterlin(client, message):
     await client.send_message(message.chat.id, f"""**İngiliz Sterlini/TL**
 **Alış:** ```{ingilizsterlini["alis"]}```\n**Satış:** ```{ingilizsterlini["satis"]}```\n**Fark:** ```{ingilizsterlini["fark"]}```""")
     
+@app.on_message(filters.command("kanadadolar"))
+async def sterlin(client, message):
+    dovizcek = requests.get(dovizjson)
+    dovizveri = json.loads(dovizcek.text)
+    kanadadoları  = dovizveri["veriler"][3]
+    await client.send_message(message.chat.id, f"""**Kanada Doları/TL**
+**Alış:** ```{kanadadoları["alis"]}```\n**Satış:** ```{kanadadoları["satis"]}```\n**Fark:** ```{kanadadoları["fark"]}```""")
+
+@app.on_message(filters.command("frang"))
+async def sterlin(client, message):
+    dovizcek = requests.get(dovizjson)
+    dovizveri = json.loads(dovizcek.text)
+    isviçrefrangı  = dovizveri["veriler"][4]
+    await client.send_message(message.chat.id, f"""**İngiliz Sterlini/TL**
+**Alış:** ```{isviçrefrangı["alis"]}```\n**Satış:** ```{isviçrefrangı["satis"]}```\n**Fark:** ```{isviçrefrangı["fark"]}```""")
     
 @app.on_message(filters.command("help"))
 async def help(client, message):
