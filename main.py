@@ -74,11 +74,11 @@ async def sterlin(client, message):
 @app.on_message(filters.command("help"))
 async def help(client, message):
     await client.send_message(message.chat.id, f"""
-**Dolar**:  ```/dolar```
-**Euro**: ```/euro```
-**İngiliz Sterlini**: ```/sterlin```
-**İsviçre Frangı**: ```/frang```
-**Kanada Doları**: ```/kanadadolar```
+**Dolar**: /dolar
+**Euro**: /euro
+**İngiliz Sterlini**: /sterlin
+**İsviçre Frangı**: /frang
+**Kanada Doları**: /kanadadolar
 **Adam Olana çok bile**
 """)    
     
