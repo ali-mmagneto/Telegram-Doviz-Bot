@@ -35,7 +35,8 @@ dovizjson = "https://api.agacinayetvar.ml/canli.json"
 @app.on_message(filters.command(['start']))
 def help_message(app, message):
         message.reply_text(
-            text=Translation.START_TEXT.format(message.from_user.mention()),
+            text="""**Merhaba İnsancık Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan eğer istersen botu grubuna ekleyerek kullanabilirsin yek yapman gereken aşağıdaki butona tıklamak.**""",
+                    buttons=(.format(message.from_user.mention()),
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
