@@ -1,5 +1,7 @@
 # Kutuphaneleri import ediyoruz
 import os
+from telethon import Button
+from telethon import TelegramClient, events
 import requests
 import json
 import pyrogram
@@ -28,8 +30,15 @@ dovizjson = "https://api.agacinayetvar.ml/canli.json"
 @app.on_message(filters.command("start"))
 async def start(client, message):
     await client.send_message(message.chat.id, f"""**Merhaba** {message.from_user.first_name}.
-**Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan.**
+**Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan eğer istersen botu grubuna ekleyerek kullanabilirsin yek yapman gereken aşağıdaki butona tıklamak.** 
 """)
+await event.reply(starttext,
+                    buttons=(
+                      [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/DovizBilgiBot?startgroup=a'),
+                       Button.url('🚀 Sahibim', 'https://t.me/bodrumlubebekk')]
+                    ),
+                    link_preview=False
+                   )
 
 # Degiskenlere atadigimiz veriyi Telegram'a yukluyoruz
 @app.on_message(filters.command("dolar"))
