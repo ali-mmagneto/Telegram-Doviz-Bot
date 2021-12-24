@@ -29,7 +29,7 @@ dovizjson = "https://api.agacinayetvar.ml/canli.json"
 # Baslat komutunda atilacak mesaji ayarliyoruz
 @app.on_message(filters.command("start"))
 async def start(client, message):
-    await client.send_message(message.chat.id, f"""**Merhaba İnsancık Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan eğer istersen botu grubuna ekleyerek kullanabilirsin yek yapman gereken aşağıdaki butona tıklamak.**""",
+    await client.send_message("""**Merhaba İnsancık Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan eğer istersen botu grubuna ekleyerek kullanabilirsin yek yapman gereken aşağıdaki butona tıklamak.**""",
                     buttons=(
                       [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/DovizBilgiBot?startgroup=a'),
                        Button.url('🚀 Sahibim', 'https://t.me/mmagneto')]
