@@ -38,8 +38,7 @@ async def help(client, message):
 **Merhaba İnsancık Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan eğer istersen botu grubuna ekleyerek kullanabilirsin tek yapman gereken aşağıdaki butona tıklamak.**""",
                     buttons=(
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(
-                     "Beni Grubuna Ekle", url="https://t.me/DovizBilgiBot?startgroup=a")]]),
+                [[InlineKeyboardButton("Beni Grubuna Ekle", url="https://t.me/DovizBilgiBot?startgroup=a")]]),
                       reply_to_message_id=message.message_id)
 
 # Degiskenlere atadigimiz veriyi Telegram'a yukluyoruz
