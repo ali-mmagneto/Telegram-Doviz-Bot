@@ -4,6 +4,11 @@ from telethon import Button
 from telethon import TelegramClient, events
 import requests
 import json
+from pyrogram import filters
+from bot import app, data, sudo_users
+from bot.helper.utils import add_task
+from pyrogram.types.bots_and_keyboards import InlineKeyboardButton, InlineKeyboardMarkup
+from .translation import Translation
 import pyrogram
 from pyrogram import Client
 from pyrogram import filters
@@ -27,15 +32,21 @@ dovizjson = "https://api.agacinayetvar.ml/canli.json"
 
 
 # Baslat komutunda atilacak mesaji ayarliyoruz
-@app.on_message(filters.command("start"))
-async def start(client, message):
-  await client.send_message("""**Merhaba İnsancık Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan eğer istersen botu grubuna ekleyerek kullanabilirsin yek yapman gereken aşağıdaki butona tıklamak.**""",
-                    buttons=(
-                      [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/DovizBilgiBot?startgroup=a'),
-                      Button.url('🚀 Sahibim', 'https://t.me/mmagneto')]
-                    ),
-                    link_preview=False
-                   ) 
+@app.on_message(filters.command(['start']))
+def help_message(app, message):
+        message.reply_text(
+            text=Translation.START_TEXT.format(message.from_user.mention()),
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            "Beni Grubuna Ekle", url="https://t.me/DovizBilgiBot?startgroup=a"
+                        )
+                    ]
+                ]
+            ),
+            reply_to_message_id=message.message_id
+        )
 
 # Degiskenlere atadigimiz veriyi Telegram'a yukluyoruz
 @app.on_message(filters.command("dolar"))
