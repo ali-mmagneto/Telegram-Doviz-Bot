@@ -1,5 +1,6 @@
 # Kutuphaneleri import ediyoruz
 import requests
+from pyrogram.types.bots_and_keyboards import InlineKeyboardButton, InlineKeyboardMarkup
 import json
 import pyrogram
 from pyrogram import Client
