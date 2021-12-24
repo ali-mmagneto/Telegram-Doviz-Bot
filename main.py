@@ -29,9 +29,7 @@ dovizjson = "https://api.agacinayetvar.ml/canli.json"
 @app.on_message(filters.command("start"))
 async def start(client, message):
     await client.send_message(message.chat.id, f"""
-**Merhaba İnsancık Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan.**""", 
-reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton(text="buraya metin", url=f"buraya url")]]))
+**Merhaba İnsancık Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan.**""")
 
 # Degiskenlere atadigimiz veriyi Telegram'a yukluyoruz
 @app.on_message(filters.command("dolar"))
@@ -83,6 +81,11 @@ async def help(client, message):
 **İsviçre Frangı**: /frang
 **Kanada Doları**: /kanadadolar
 **Adam Olana çok bile**
-""")    
+""")
+
+@app.on_message(filters.command("susunlan"))
+async def help(client, message):
+    await client.send_message(message.chat.id, f"""
+**Susun Yoksa Mehmet Admin Bizi sikçek""")    
     
 app.run()
