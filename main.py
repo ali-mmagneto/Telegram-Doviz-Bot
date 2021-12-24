@@ -27,15 +27,15 @@ dovizjson = "https://api.agacinayetvar.ml/canli.json"
 
 
 # Baslat komutunda atilacak mesaji ayarliyoruz
-@app.on_message(filters.command("start"))
-async def start(client, message):
-    await client.send_message("""**Merhaba İnsancık Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan eğer istersen botu grubuna ekleyerek kullanabilirsin yek yapman gereken aşağıdaki butona tıklamak.**""",
+@client.on(events.NewMessage(pattern="^/start$"))
+async def start(event):
+  await event.reply("""**Merhaba İnsancık Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan eğer istersen botu grubuna ekleyerek kullanabilirsin yek yapman gereken aşağıdaki butona tıklamak.**""",
                     buttons=(
                       [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/DovizBilgiBot?startgroup=a'),
-                       Button.url('🚀 Sahibim', 'https://t.me/mmagneto')]
+                      Button.url('🚀 Sahibim', 'https://t.me/mmagneto')]
                     ),
                     link_preview=False
-                   )
+                   ) 
 
 # Degiskenlere atadigimiz veriyi Telegram'a yukluyoruz
 @app.on_message(filters.command("dolar"))
