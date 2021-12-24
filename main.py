@@ -52,9 +52,9 @@ async def euro(client, message):
 async def sterlin(client, message):
     dovizcek = requests.get(dovizjson)
     dovizveri = json.loads(dovizcek.text)
-    ingiliz sterlini  = dovizveri["veriler"][1]
-    await client.send_message(message.chat.id, f"""**EURO/TL**
-**Alış:** ```{İngiliz Sterlini["alis"]}```\n**Satış:** ```{ingiliz sterlini["satis"]}```\n**Fark:** ```{ingiliz sterlini["fark"]}```""")
+    ingilizsterlini  = dovizveri["veriler"][1]
+    await client.send_message(message.chat.id, f"""**İngiliz Sterlini/TL**
+**Alış:** ```{ingilizsterlini["alis"]}```\n**Satış:** ```{ingilizsterlini["satis"]}```\n**Fark:** ```{ingilizsterlini["fark"]}```""")
     
     
 @app.on_message(filters.command("help"))
