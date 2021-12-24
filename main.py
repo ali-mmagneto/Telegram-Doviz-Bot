@@ -47,6 +47,14 @@ async def euro(client, message):
     euro = dovizveri["veriler"][1]
     await client.send_message(message.chat.id, f"""**EURO/TL**
 **Alış:** ```{euro["alis"]}```\n**Satış:** ```{euro["satis"]}```\n**Fark:** ```{euro["fark"]}```""")
+
+@app.on_message(filters.command("sterlin"))
+async def sterlin(client, message):
+    dovizcek = requests.get(dovizjson)
+    dovizveri = json.loads(dovizcek.text)
+    ingiliz sterlini  = dovizveri["veriler"][1]
+    await client.send_message(message.chat.id, f"""**EURO/TL**
+**Alış:** ```{İngiliz Sterlini["alis"]}```\n**Satış:** ```{ingiliz sterlini["satis"]}```\n**Fark:** ```{ingiliz sterlini["fark"]}```""")
     
     
 @app.on_message(filters.command("help"))
@@ -54,6 +62,7 @@ async def help(client, message):
     await client.send_message(message.chat.id, f"""
 **Dolar**:  ```/dolar```
 **Euro**: ```/euro```
+**İngiliz Sterlini**: ```/sterlin```
 **Adam Olana çok bile**
 """)    
     
