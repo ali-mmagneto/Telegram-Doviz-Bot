@@ -28,7 +28,9 @@ dovizjson = "https://api.agacinayetvar.ml/canli.json"
 @app.on_message(filters.command("start"))
 async def start(client, message):
     await client.send_message(message.chat.id, f"""
-**Merhaba İnsancık Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan.**""") 
+**Merhaba İnsancık Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan.**""", 
+reply_markup=InlineKeyboardMarkup([
+                    [InlineKeyboardButton(text="buraya metin", url=f"buraya url")]]))
 
 # Degiskenlere atadigimiz veriyi Telegram'a yukluyoruz
 @app.on_message(filters.command("dolar"))
