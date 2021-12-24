@@ -32,10 +32,9 @@ async def start(client, message):
     await client.send_message(message.chat.id, f"""**Merhaba** {message.from_user.first_name}.
 **Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan eğer istersen botu grubuna ekleyerek kullanabilirsin yek yapman gereken aşağıdaki butona tıklamak.** 
 """)
-await event.reply(starttext,
                     buttons=(
                       [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/DovizBilgiBot?startgroup=a'),
-                       Button.url('🚀 Sahibim', 'https://t.me/bodrumlubebekk')]
+                       Button.url('🚀 Sahibim', 'https://t.me/mmagneto')]
                     ),
                     link_preview=False
                    )
