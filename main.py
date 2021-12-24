@@ -39,6 +39,7 @@ async def help(client, message):
                     buttons = [[
             InlineKeyboardButton(text='Beni Grubuna Ekle', url=f'https://t.me/DovizBilgiBot?startgroup=a'),
         ]]
+
 # Degiskenlere atadigimiz veriyi Telegram'a yukluyoruz
 @app.on_message(filters.command("dolar"))
 async def doviz(client, message):
