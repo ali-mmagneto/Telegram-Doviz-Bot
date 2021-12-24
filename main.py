@@ -42,7 +42,7 @@ async def help(client, message):
 
 # Degiskenlere atadigimiz veriyi Telegram'a yukluyoruz
 @app.on_message(filters.command("dolar"))
-async def doviz(client, message):
+async def dolar(client, message):
     dovizcek = requests.get(dovizjson)
     dovizveri = json.loads(dovizcek.text)
     dolar = dovizveri["veriler"][0]
