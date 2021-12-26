@@ -26,3 +26,5 @@ dovizjson = "api.agacinayetvar.ml/doviz.json"
 async def start(client, message):
     await client.send_message(message.chat.id, f"""
 **Merhaba İnsancık Ben Sana Güncel Doviz Kurunu Aktarıcam Komutları öğrenmek için /help komutunu Kullan.**""")
+
+app.run()
