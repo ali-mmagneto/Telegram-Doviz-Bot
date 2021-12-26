@@ -12,9 +12,6 @@ api_id = int(os.environ['API_ID'])
 api_hash = os.environ['API_HASH']
 
 # Telegram sunucusuna bagliyoruz
-plugins = dict(
-        root="datalar"
-    )
 app = Client(
     "Dovizbot",
     bot_token=bot_token,
