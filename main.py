@@ -1,18 +1,25 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# (c) Shrimadhav U K
-
-# the logging things
-import logging
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
-
+import requests
+from pyrogram.types.bots_and_keyboards import InlineKeyboardButton, InlineKeyboardMarkup
+import json
+import pyrogram
+from pyrogram import Client
+from pyrogram import filters
 import os
 
-        bot_token=BOT_TOKEN,
-        api_id=APP_ID,
-        api_hash=API_HASH,
-        plugins=datalar
+from os import getenv, environ
+
+bot_token = os.environ['BOT_TOKEN']
+api_id = int(os.environ['API_ID'])
+api_hash = os.environ['API_HASH']
+
+# Telegram sunucusuna bagliyoruz
+app = Client(
+    "Dovizbot",
+    bot_token=bot_token,
+    api_id=api_id,
+    api_hash=api_hash
+    plugins=datalar
+)
+
     )
     app.run()
