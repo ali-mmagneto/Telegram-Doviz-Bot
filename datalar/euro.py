@@ -29,3 +29,4 @@ async def euro(client, message):
     euro = dovizveri["veriler"][1]
     await client.send_message(message.chat.id, f"""**EURO/TL**
 **Alış:** ```{euro["alis"]}```\n**Satış:** ```{euro["satis"]}```\n**Fark:** ```{euro["fark"]}```""")
+app.run()
