@@ -20,5 +20,4 @@ app = Client(
     plugins=datalar
 )
 
-    )
-    app.run()
+app.run()
