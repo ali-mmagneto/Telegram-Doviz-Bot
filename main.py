@@ -10,13 +10,10 @@ logger = logging.getLogger(__name__)
 
 import os
 
-import pyrogram
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
-
     app =
-        bot_token=Config.BOT_TOKEN,
-        api_id=Config.APP_ID,
-        api_hash=Config.API_HASH,
+        bot_token=BOT_TOKEN,
+        api_id=APP_ID,
+        api_hash=API_HASH,
         plugins=datalar
     )
     app.run()
