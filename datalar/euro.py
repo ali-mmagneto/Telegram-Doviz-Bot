@@ -30,4 +30,4 @@ async def euro(client, message):
     await client.send_message(message.chat.id, f"""**EURO/TL**
 **Alış:** ```{euro["alis"]}```\n**Satış:** ```{euro["satis"]}```\n**Fark:** ```{euro["fark"]}```""")
 
-  app.run()
+app.run()
